@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>system_test.rb.tt</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../../../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            system_test.rb.tt
+        </h1>
+        <ul class="files">
+            
+            <li>
+                railties/lib/rails/generators/test_unit/scaffold/templates/system_test.rb.tt
+                
+                    <a href="https://github.com/rails/rails/blob/f33d52c95217212cbacc8d5e44b5a8e3cdc6f5b3/railties/lib/rails/generators/test_unit/scaffold/templates/system_test.rb.tt" target="_blank" class="github_url">on GitHub</a>
+                
+            </li>
+            <li>Last modified: 2019-12-31 20:53:00 +0100</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>require “application_system_test_case”</p>
+
+<p>&lt;% module_namespacing do -%&gt; class &lt;%= class_name.pluralize %&gt;Test &lt; ApplicationSystemTestCase</p>
+
+<pre><code>setup do
+  @&lt;%= singular_table_name %&gt; = &lt;%= fixture_name %&gt;(:one)
+end
+
+test &quot;visiting the index&quot; do
+  visit &lt;%= plural_table_name %&gt;_url
+  assert_selector &quot;h1&quot;, text: &quot;&lt;%= class_name.pluralize.titleize %&gt;&quot;
+end
+
+test &quot;creating a &lt;%= human_name %&gt;&quot; do
+  visit &lt;%= plural_table_name %&gt;_url
+  click_on &quot;New &lt;%= class_name.titleize %&gt;&quot;
+
+  &lt;%- attributes_hash.each do |attr, value| -%&gt;
+  &lt;%- if boolean?(attr) -%&gt;
+  check &quot;&lt;%= attr.humanize %&gt;&quot; if &lt;%= value %&gt;
+  &lt;%- else -%&gt;
+  fill_in &quot;&lt;%= attr.humanize %&gt;&quot;, with: &lt;%= value %&gt;
+  &lt;%- end -%&gt;
+  &lt;%- end -%&gt;
+  click_on &quot;Create &lt;%= human_name %&gt;&quot;
+
+  assert_text &quot;&lt;%= human_name %&gt; was successfully created&quot;
+  click_on &quot;Back&quot;
+end
+
+test &quot;updating a &lt;%= human_name %&gt;&quot; do
+  visit &lt;%= plural_table_name %&gt;_url
+  click_on &quot;Edit&quot;, match: :first
+
+  &lt;%- attributes_hash.each do |attr, value| -%&gt;
+  &lt;%- if boolean?(attr) -%&gt;
+  check &quot;&lt;%= attr.humanize %&gt;&quot; if &lt;%= value %&gt;
+  &lt;%- else -%&gt;
+  fill_in &quot;&lt;%= attr.humanize %&gt;&quot;, with: &lt;%= value %&gt;
+  &lt;%- end -%&gt;
+  &lt;%- end -%&gt;
+  click_on &quot;Update &lt;%= human_name %&gt;&quot;
+
+  assert_text &quot;&lt;%= human_name %&gt; was successfully updated&quot;
+  click_on &quot;Back&quot;
+end
+
+test &quot;destroying a &lt;%= human_name %&gt;&quot; do
+  visit &lt;%= plural_table_name %&gt;_url
+  page.accept_confirm do
+    click_on &quot;Destroy&quot;, match: :first
+  end
+
+  assert_text &quot;&lt;%= human_name %&gt; was successfully destroyed&quot;
+end
+</code></pre>
+
+<p>end &lt;% end -%&gt;</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

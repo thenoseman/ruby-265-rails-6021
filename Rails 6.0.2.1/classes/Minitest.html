@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Minitest</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="Minitest">
+
+  
+
+    <meta name="keywords" content="Minitest class">
+  
+    <meta name="keywords" content="plugin_active_record_options, plugin_rails_options, plugin_rails_init, plugin_rails_ci_junit_format_test_report_for_buildkite_init">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span>
+            Minitest
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/activerecord/bin/test.html">activerecord/bin/test</a></li>
+            
+            <li><a href="../files/activesupport/lib/active_support/test_case_rb.html">activesupport/lib/active_support/test_case.rb</a></li>
+            
+            <li><a href="../files/activesupport/lib/active_support/testing/isolation_rb.html">activesupport/lib/active_support/testing/isolation.rb</a></li>
+            
+            <li><a href="../files/activesupport/lib/active_support/testing/method_call_assertions_rb.html">activesupport/lib/active_support/testing/method_call_assertions.rb</a></li>
+            
+            <li><a href="../files/activesupport/lib/active_support/testing/parallelization_rb.html">activesupport/lib/active_support/testing/parallelization.rb</a></li>
+            
+            <li><a href="../files/activesupport/lib/active_support/testing/setup_and_teardown_rb.html">activesupport/lib/active_support/testing/setup_and_teardown.rb</a></li>
+            
+            <li><a href="../files/railties/lib/minitest/rails_plugin_rb.html">railties/lib/minitest/rails_plugin.rb</a></li>
+            
+            <li><a href="../files/tools/test_common_rb.html">tools/test_common.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Minitest/SuppressedSummaryReporter.html">Minitest::SuppressedSummaryReporter</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-plugin_active_record_options">plugin_active_record_options</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-plugin_rails_ci_junit_format_test_report_for_buildkite_init">plugin_rails_ci_junit_format_test_report_for_buildkite_init</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-plugin_rails_init">plugin_rails_init</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-plugin_rails_options">plugin_rails_options</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-plugin_active_record_options">
+            
+              <b>plugin_active_record_options</b>(opts, options)
+            
+            <a href="../classes/Minitest.html#method-c-plugin_active_record_options" name="method-c-plugin_active_record_options" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-plugin_active_record_options_source')" id="l_method-c-plugin_active_record_options_source">show</a>
+                
+              </p>
+              <div id="method-c-plugin_active_record_options_source" class="dyn-source">
+                <pre>   <span class="ruby-comment"># File activerecord/bin/test</span>
+<span class="line-num">14</span> <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">plugin_active_record_options</span>(<span class="ruby-identifier">opts</span>, <span class="ruby-identifier">options</span>)
+<span class="line-num">15</span>   <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-string">&quot;&quot;</span>
+<span class="line-num">16</span>   <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">separator</span> <span class="ruby-string">&quot;Active Record options:&quot;</span>
+<span class="line-num">17</span>   <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-a&quot;</span>, <span class="ruby-string">&quot;--adapter [ADAPTER]&quot;</span>,
+<span class="line-num">18</span>           <span class="ruby-string">&quot;Run tests using a specific adapter (sqlite3, sqlite3_mem, mysql2, postgresql)&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">adapter</span><span class="ruby-operator">|</span>
+<span class="line-num">19</span>     <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;ARCONN&quot;</span>] = <span class="ruby-identifier">adapter</span>.<span class="ruby-identifier">strip</span>
+<span class="line-num">20</span>   <span class="ruby-keyword">end</span>
+<span class="line-num">21</span> 
+<span class="line-num">22</span>   <span class="ruby-identifier">opts</span>
+<span class="line-num">23</span> <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-plugin_rails_ci_junit_format_test_report_for_buildkite_init">
+            
+              <b>plugin_rails_ci_junit_format_test_report_for_buildkite_init</b>(*)
+            
+            <a href="../classes/Minitest.html#method-c-plugin_rails_ci_junit_format_test_report_for_buildkite_init" name="method-c-plugin_rails_ci_junit_format_test_report_for_buildkite_init" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-plugin_rails_ci_junit_format_test_report_for_buildkite_init_source')" id="l_method-c-plugin_rails_ci_junit_format_test_report_for_buildkite_init_source">show</a>
+                
+              </p>
+              <div id="method-c-plugin_rails_ci_junit_format_test_report_for_buildkite_init_source" class="dyn-source">
+                <pre>   <span class="ruby-comment"># File tools/test_common.rb</span>
+<span class="line-num"> 8</span> <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">plugin_rails_ci_junit_format_test_report_for_buildkite_init</span>(<span class="ruby-operator">*</span>)
+<span class="line-num"> 9</span>   <span class="ruby-identifier">dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">__dir__</span>, <span class="ruby-node">&quot;../test-reports/#{ENV[&#39;BUILDKITE_JOB_ID&#39;]}&quot;</span>)
+<span class="line-num">10</span>   <span class="ruby-identifier">reporter</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Reporters</span><span class="ruby-operator">::</span><span class="ruby-constant">JUnitReporter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-keyword">false</span>)
+<span class="line-num">11</span>   <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">dir</span>)
+<span class="line-num">12</span> <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-plugin_rails_init">
+            
+              <b>plugin_rails_init</b>(options)
+            
+            <a href="../classes/Minitest.html#method-c-plugin_rails_init" name="method-c-plugin_rails_init" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Owes great inspiration to test runner trailblazers like RSpec, minitest-reporters, maxitest and others.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-plugin_rails_init_source')" id="l_method-c-plugin_rails_init_source">show</a>
+                
+              </p>
+              <div id="method-c-plugin_rails_init_source" class="dyn-source">
+                <pre>   <span class="ruby-comment"># File railties/lib/minitest/rails_plugin.rb</span>
+<span class="line-num">40</span> <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">plugin_rails_init</span>(<span class="ruby-identifier">options</span>)
+<span class="line-num">41</span>   <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:full_backtrace</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;BACKTRACE&quot;</span>]
+<span class="line-num">42</span>     <span class="ruby-comment"># Plugin can run without Rails loaded, check before filtering.</span>
+<span class="line-num">43</span>     <span class="ruby-constant">Minitest</span>.<span class="ruby-identifier">backtrace_filter</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Rails</span>.<span class="ruby-identifier">backtrace_cleaner</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">::</span><span class="ruby-constant">Rails</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:backtrace_cleaner</span>)
+<span class="line-num">44</span>   <span class="ruby-keyword">end</span>
+<span class="line-num">45</span> 
+<span class="line-num">46</span>   <span class="ruby-comment"># Suppress summary reports when outputting inline rerun snippets.</span>
+<span class="line-num">47</span>   <span class="ruby-keyword">if</span> <span class="ruby-identifier">reporter</span>.<span class="ruby-identifier">reporters</span>.<span class="ruby-identifier">reject!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">reporter</span><span class="ruby-operator">|</span> <span class="ruby-identifier">reporter</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">SummaryReporter</span>) }
+<span class="line-num">48</span>     <span class="ruby-identifier">reporter</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">SuppressedSummaryReporter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:io</span>], <span class="ruby-identifier">options</span>)
+<span class="line-num">49</span>   <span class="ruby-keyword">end</span>
+<span class="line-num">50</span> 
+<span class="line-num">51</span>   <span class="ruby-comment"># Replace progress reporter for colors.</span>
+<span class="line-num">52</span>   <span class="ruby-keyword">if</span> <span class="ruby-identifier">reporter</span>.<span class="ruby-identifier">reporters</span>.<span class="ruby-identifier">reject!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">reporter</span><span class="ruby-operator">|</span> <span class="ruby-identifier">reporter</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">ProgressReporter</span>) }
+<span class="line-num">53</span>     <span class="ruby-identifier">reporter</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">Rails</span><span class="ruby-operator">::</span><span class="ruby-constant">TestUnitReporter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:io</span>], <span class="ruby-identifier">options</span>)
+<span class="line-num">54</span>   <span class="ruby-keyword">end</span>
+<span class="line-num">55</span> <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-plugin_rails_options">
+            
+              <b>plugin_rails_options</b>(opts, options)
+            
+            <a href="../classes/Minitest.html#method-c-plugin_rails_options" name="method-c-plugin_rails_options" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-plugin_rails_options_source')" id="l_method-c-plugin_rails_options_source">show</a>
+                
+              </p>
+              <div id="method-c-plugin_rails_options_source" class="dyn-source">
+                <pre>   <span class="ruby-comment"># File railties/lib/minitest/rails_plugin.rb</span>
+<span class="line-num">15</span> <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">plugin_rails_options</span>(<span class="ruby-identifier">opts</span>, <span class="ruby-identifier">options</span>)
+<span class="line-num">16</span>   <span class="ruby-operator">::</span><span class="ruby-constant">Rails</span><span class="ruby-operator">::</span><span class="ruby-constant">TestUnit</span><span class="ruby-operator">::</span><span class="ruby-constant">Runner</span>.<span class="ruby-identifier">attach_before_load_options</span>(<span class="ruby-identifier">opts</span>)
+<span class="line-num">17</span> 
+<span class="line-num">18</span>   <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-b&quot;</span>, <span class="ruby-string">&quot;--backtrace&quot;</span>, <span class="ruby-string">&quot;Show the complete backtrace&quot;</span>) <span class="ruby-keyword">do</span>
+<span class="line-num">19</span>     <span class="ruby-identifier">options</span>[<span class="ruby-value">:full_backtrace</span>] = <span class="ruby-keyword">true</span>
+<span class="line-num">20</span>   <span class="ruby-keyword">end</span>
+<span class="line-num">21</span> 
+<span class="line-num">22</span>   <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-d&quot;</span>, <span class="ruby-string">&quot;--defer-output&quot;</span>, <span class="ruby-string">&quot;Output test failures and errors after the test run&quot;</span>) <span class="ruby-keyword">do</span>
+<span class="line-num">23</span>     <span class="ruby-identifier">options</span>[<span class="ruby-value">:output_inline</span>] = <span class="ruby-keyword">false</span>
+<span class="line-num">24</span>   <span class="ruby-keyword">end</span>
+<span class="line-num">25</span> 
+<span class="line-num">26</span>   <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-f&quot;</span>, <span class="ruby-string">&quot;--fail-fast&quot;</span>, <span class="ruby-string">&quot;Abort test run on first failure or error&quot;</span>) <span class="ruby-keyword">do</span>
+<span class="line-num">27</span>     <span class="ruby-identifier">options</span>[<span class="ruby-value">:fail_fast</span>] = <span class="ruby-keyword">true</span>
+<span class="line-num">28</span>   <span class="ruby-keyword">end</span>
+<span class="line-num">29</span> 
+<span class="line-num">30</span>   <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-c&quot;</span>, <span class="ruby-string">&quot;--[no-]color&quot;</span>, <span class="ruby-string">&quot;Enable color in the output&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+<span class="line-num">31</span>     <span class="ruby-identifier">options</span>[<span class="ruby-value">:color</span>] = <span class="ruby-identifier">value</span>
+<span class="line-num">32</span>   <span class="ruby-keyword">end</span>
+<span class="line-num">33</span> 
+<span class="line-num">34</span>   <span class="ruby-identifier">options</span>[<span class="ruby-value">:color</span>] = <span class="ruby-keyword">true</span>
+<span class="line-num">35</span>   <span class="ruby-identifier">options</span>[<span class="ruby-value">:output_inline</span>] = <span class="ruby-keyword">true</span>
+<span class="line-num">36</span> <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

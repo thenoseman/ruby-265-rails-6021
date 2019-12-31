@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>testing.rake</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            testing.rake
+        </h1>
+        <ul class="files">
+            
+            <li>
+                railties/lib/rails/test_unit/testing.rake
+                
+                    <a href="https://github.com/rails/rails/blob/f33d52c95217212cbacc8d5e44b5a8e3cdc6f5b3/railties/lib/rails/test_unit/testing.rake" target="_blank" class="github_url">on GitHub</a>
+                
+            </li>
+            <li>Last modified: 2019-12-31 20:53:00 +0100</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p># frozen_string_literal: true</p>
+
+<p>gem “minitest” require “minitest” require “rails/test_unit/runner”</p>
+
+<p>task default: :test</p>
+
+<p>desc “Runs all tests in test folder except system ones” task :test do</p>
+
+<pre><code>$: &lt;&lt; &quot;test&quot;
+
+if ENV.key?(&quot;TEST&quot;)
+  Rails::TestUnit::Runner.rake_run([ENV[&quot;TEST&quot;]])
+else
+  Rails::TestUnit::Runner.rake_run
+end
+</code></pre>
+
+<p>end</p>
+
+<p>namespace :test do</p>
+
+<pre><code>task :prepare do
+  # Placeholder task for other Railtie and plugins to enhance.
+  # If used with Active Record, this task runs before the database schema is synchronized.
+end
+
+task run: %w[test]
+
+desc &quot;Run tests quickly, but also reset db&quot;
+task db: %w[db:test:prepare test]
+
+[&quot;models&quot;, &quot;helpers&quot;, &quot;channels&quot;, &quot;controllers&quot;, &quot;mailers&quot;, &quot;integration&quot;, &quot;jobs&quot;, &quot;mailboxes&quot;].each do |name|
+  task name =&gt; &quot;test:prepare&quot; do
+    $: &lt;&lt; &quot;test&quot;
+    Rails::TestUnit::Runner.rake_run([&quot;test/#{name}&quot;])
+  end
+end
+
+task generators: &quot;test:prepare&quot; do
+  $: &lt;&lt; &quot;test&quot;
+  Rails::TestUnit::Runner.rake_run([&quot;test/lib/generators&quot;])
+end
+
+task units: &quot;test:prepare&quot; do
+  $: &lt;&lt; &quot;test&quot;
+  Rails::TestUnit::Runner.rake_run([&quot;test/models&quot;, &quot;test/helpers&quot;, &quot;test/unit&quot;])
+end
+
+task functionals: &quot;test:prepare&quot; do
+  $: &lt;&lt; &quot;test&quot;
+  Rails::TestUnit::Runner.rake_run([&quot;test/controllers&quot;, &quot;test/mailers&quot;, &quot;test/functional&quot;])
+end
+
+desc &quot;Run system tests only&quot;
+task system: &quot;test:prepare&quot; do
+  $: &lt;&lt; &quot;test&quot;
+  Rails::TestUnit::Runner.rake_run([&quot;test/system&quot;])
+end
+</code></pre>
+
+<p>end</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

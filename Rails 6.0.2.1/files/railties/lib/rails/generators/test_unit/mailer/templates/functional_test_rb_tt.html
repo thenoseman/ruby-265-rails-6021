@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>functional_test.rb.tt</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../../../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            functional_test.rb.tt
+        </h1>
+        <ul class="files">
+            
+            <li>
+                railties/lib/rails/generators/test_unit/mailer/templates/functional_test.rb.tt
+                
+                    <a href="https://github.com/rails/rails/blob/f33d52c95217212cbacc8d5e44b5a8e3cdc6f5b3/railties/lib/rails/generators/test_unit/mailer/templates/functional_test.rb.tt" target="_blank" class="github_url">on GitHub</a>
+                
+            </li>
+            <li>Last modified: 2019-12-31 20:53:00 +0100</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>require &#39;test_helper&#39;</p>
+
+<p>&lt;% module_namespacing do -%&gt; class &lt;%= class_name %&gt;MailerTest &lt; <a href="../../../../../../../../classes/ActionMailer/TestCase.html"><code>ActionMailer::TestCase</code></a> &lt;% actions.each do |action| -%&gt;</p>
+
+<pre><code>test &quot;&lt;%= action %&gt;&quot; do
+  mail = &lt;%= class_name %&gt;Mailer.&lt;%= action %&gt;
+  assert_equal &lt;%= action.to_s.humanize.inspect %&gt;, mail.subject
+  assert_equal [&quot;to@example.org&quot;], mail.to
+  assert_equal [&quot;from@example.com&quot;], mail.from
+  assert_match &quot;Hi&quot;, mail.body.encoded
+end
+</code></pre>
+
+<p>&lt;% end -%&gt; &lt;% if actions.blank? -%&gt;</p>
+
+<pre><code># test &quot;the truth&quot; do
+#   assert true
+# end
+</code></pre>
+
+<p>&lt;% end -%&gt; end &lt;% end -%&gt;</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

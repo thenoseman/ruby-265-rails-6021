@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>rollup.config.js</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            rollup.config.js
+        </h1>
+        <ul class="files">
+            
+            <li>
+                actioncable/rollup.config.js
+                
+                    <a href="https://github.com/rails/rails/blob/f33d52c95217212cbacc8d5e44b5a8e3cdc6f5b3/actioncable/rollup.config.js" target="_blank" class="github_url">on GitHub</a>
+                
+            </li>
+            <li>Last modified: 2019-12-31 20:52:59 +0100</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>import babel from “rollup-plugin-babel” import uglify from “rollup-plugin-uglify”</p>
+
+<p>const uglifyOptions = {</p>
+
+<pre><code>mangle: false,
+compress: false,
+output: {
+  beautify: true,
+  indent_level: 2
+}
+</code></pre>
+
+<p>}</p>
+
+<p>export default {</p>
+
+<pre><code>input: &quot;app/javascript/action_cable/index.js&quot;,
+output: {
+  file: &quot;app/assets/javascripts/action_cable.js&quot;,
+  format: &quot;umd&quot;,
+  name: &quot;ActionCable&quot;
+},
+plugins: [
+  babel(),
+  uglify(uglifyOptions)
+]
+</code></pre>
+
+<p>}</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

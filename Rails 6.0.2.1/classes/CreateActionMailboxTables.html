@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CreateActionMailboxTables</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="CreateActionMailboxTables">
+
+  
+
+    <meta name="keywords" content="CreateActionMailboxTables class">
+  
+    <meta name="keywords" content="change">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            CreateActionMailboxTables
+            
+                <span class="parent">&lt;
+                    
+                    ActiveRecord::Migration[6.0]
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/actionmailbox/db/migrate/20180917164000_create_action_mailbox_tables_rb.html">actionmailbox/db/migrate/20180917164000_create_action_mailbox_tables.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-change">change</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-change">
+            
+              <b>change</b>()
+            
+            <a href="../classes/CreateActionMailboxTables.html#method-i-change" name="method-i-change" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-change_source')" id="l_method-i-change_source">show</a>
+                
+              </p>
+              <div id="method-i-change_source" class="dyn-source">
+                <pre>   <span class="ruby-comment"># File actionmailbox/db/migrate/20180917164000_create_action_mailbox_tables.rb</span>
+<span class="line-num"> 2</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">change</span>
+<span class="line-num"> 3</span>   <span class="ruby-identifier">create_table</span> <span class="ruby-value">:action_mailbox_inbound_emails</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+<span class="line-num"> 4</span>     <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span> <span class="ruby-value">:status</span>, <span class="ruby-value">default:</span> <span class="ruby-value">0</span>, <span class="ruby-value">null:</span> <span class="ruby-keyword">false</span>
+<span class="line-num"> 5</span>     <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>  <span class="ruby-value">:message_id</span>, <span class="ruby-value">null:</span> <span class="ruby-keyword">false</span>
+<span class="line-num"> 6</span>     <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>  <span class="ruby-value">:message_checksum</span>, <span class="ruby-value">null:</span> <span class="ruby-keyword">false</span>
+<span class="line-num"> 7</span> 
+<span class="line-num"> 8</span>     <span class="ruby-identifier">t</span>.<span class="ruby-identifier">timestamps</span>
+<span class="line-num"> 9</span> 
+<span class="line-num">10</span>     <span class="ruby-identifier">t</span>.<span class="ruby-identifier">index</span> [ <span class="ruby-value">:message_id</span>, <span class="ruby-value">:message_checksum</span> ], <span class="ruby-value">name:</span> <span class="ruby-string">&quot;index_action_mailbox_inbound_emails_uniqueness&quot;</span>, <span class="ruby-value">unique:</span> <span class="ruby-keyword">true</span>
+<span class="line-num">11</span>   <span class="ruby-keyword">end</span>
+<span class="line-num">12</span> <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

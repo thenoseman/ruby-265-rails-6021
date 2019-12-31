@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>NilClass</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="NilClass">
+
+  
+
+    <meta name="keywords" content="NilClass class">
+  
+    <meta name="keywords" content="blank?, to_param, try, try!">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            NilClass
+            
+                <span class="parent">&lt;
+                    
+                    <a href="Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/activesupport/lib/active_support/core_ext/object/blank_rb.html">activesupport/lib/active_support/core_ext/object/blank.rb</a></li>
+            
+            <li><a href="../files/activesupport/lib/active_support/core_ext/object/json_rb.html">activesupport/lib/active_support/core_ext/object/json.rb</a></li>
+            
+            <li><a href="../files/activesupport/lib/active_support/core_ext/object/to_query_rb.html">activesupport/lib/active_support/core_ext/object/to_query.rb</a></li>
+            
+            <li><a href="../files/activesupport/lib/active_support/core_ext/object/try_rb.html">activesupport/lib/active_support/core_ext/object/try.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-blank-3F">blank?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-to_param">to_param</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-try">try</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-try-21">try!</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-blank-3F">
+            
+              <b>blank?</b>()
+            
+            <a href="../classes/NilClass.html#method-i-blank-3F" name="method-i-blank-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p><code>nil</code> is blank:</p>
+
+<pre><code>nil.blank? # =&gt; true
+</code></pre>
+
+<p>@return [true]</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-blank-3F_source')" id="l_method-i-blank-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-blank-3F_source" class="dyn-source">
+                <pre>   <span class="ruby-comment"># File activesupport/lib/active_support/core_ext/object/blank.rb</span>
+<span class="line-num">56</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">blank?</span>
+<span class="line-num">57</span>   <span class="ruby-keyword">true</span>
+<span class="line-num">58</span> <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to_param">
+            
+              <b>to_param</b>()
+            
+            <a href="../classes/NilClass.html#method-i-to_param" name="method-i-to_param" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Returns <code>self</code>.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-to_param_source')" id="l_method-i-to_param_source">show</a>
+                
+              </p>
+              <div id="method-i-to_param_source" class="dyn-source">
+                <pre>   <span class="ruby-comment"># File activesupport/lib/active_support/core_ext/object/to_query.rb</span>
+<span class="line-num">20</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_param</span>
+<span class="line-num">21</span>   <span class="ruby-keyword">self</span>
+<span class="line-num">22</span> <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-try">
+            
+              <b>try</b>(method_name = nil, *args)
+            
+            <a href="../classes/NilClass.html#method-i-try" name="method-i-try" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Calling <code>try</code> on <code>nil</code> always returns <code>nil</code>. It becomes especially helpful when navigating through associations that may return <code>nil</code>.</p>
+
+<pre><code>nil.try(:name) # =&gt; nil
+</code></pre>
+
+<p>Without <code>try</code></p>
+
+<pre><code>@person &amp;&amp; @person.children.any? &amp;&amp; @person.children.first.name
+</code></pre>
+
+<p>With <code>try</code></p>
+
+<pre><code>@person.try(:children).try(:first).try(:name)
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-try_source')" id="l_method-i-try_source">show</a>
+                
+              </p>
+              <div id="method-i-try_source" class="dyn-source">
+                <pre>    <span class="ruby-comment"># File activesupport/lib/active_support/core_ext/object/try.rb</span>
+<span class="line-num">146</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">try</span>(<span class="ruby-identifier">method_name</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="line-num">147</span>   <span class="ruby-keyword">nil</span>
+<span class="line-num">148</span> <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-try-21">
+            
+              <b>try!</b>(method_name = nil, *args)
+            
+            <a href="../classes/NilClass.html#method-i-try-21" name="method-i-try-21" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Calling <code>try!</code> on <code>nil</code> always returns <code>nil</code>.</p>
+
+<pre><code>nil.try!(:name) # =&gt; nil
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-try-21_source')" id="l_method-i-try-21_source">show</a>
+                
+              </p>
+              <div id="method-i-try-21_source" class="dyn-source">
+                <pre>    <span class="ruby-comment"># File activesupport/lib/active_support/core_ext/object/try.rb</span>
+<span class="line-num">153</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">try!</span>(<span class="ruby-identifier">method_name</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="line-num">154</span>   <span class="ruby-keyword">nil</span>
+<span class="line-num">155</span> <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

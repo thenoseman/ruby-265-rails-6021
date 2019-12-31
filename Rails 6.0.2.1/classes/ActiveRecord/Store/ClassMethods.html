@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ActiveRecord::Store::ClassMethods</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="ActiveRecord::Store::ClassMethods">
+
+  
+
+    <meta name="keywords" content="ActiveRecord::Store::ClassMethods class">
+  
+    <meta name="keywords" content="store, store_accessor, stored_attributes">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span>
+            ActiveRecord::Store::ClassMethods
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/activerecord/lib/active_record/store_rb.html">activerecord/lib/active_record/store.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-store">store</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-store_accessor">store_accessor</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-stored_attributes">stored_attributes</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-store">
+            
+              <b>store</b>(store_attribute, options = {})
+            
+            <a href="../../../classes/ActiveRecord/Store/ClassMethods.html#method-i-store" name="method-i-store" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-store_source')" id="l_method-i-store_source">show</a>
+                
+              </p>
+              <div id="method-i-store_source" class="dyn-source">
+                <pre>    <span class="ruby-comment"># File activerecord/lib/active_record/store.rb</span>
+<span class="line-num">104</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">store</span>(<span class="ruby-identifier">store_attribute</span>, <span class="ruby-identifier">options</span> = {})
+<span class="line-num">105</span>   <span class="ruby-identifier">serialize</span> <span class="ruby-identifier">store_attribute</span>, <span class="ruby-constant">IndifferentCoder</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">store_attribute</span>, <span class="ruby-identifier">options</span>[<span class="ruby-value">:coder</span>])
+<span class="line-num">106</span>   <span class="ruby-identifier">store_accessor</span>(<span class="ruby-identifier">store_attribute</span>, <span class="ruby-identifier">options</span>[<span class="ruby-value">:accessors</span>], <span class="ruby-identifier">options</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-value">:prefix</span>, <span class="ruby-value">:suffix</span>)) <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-value">:accessors</span>
+<span class="line-num">107</span> <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-store_accessor">
+            
+              <b>store_accessor</b>(store_attribute, *keys, prefix: nil, suffix: nil)
+            
+            <a href="../../../classes/ActiveRecord/Store/ClassMethods.html#method-i-store_accessor" name="method-i-store_accessor" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-store_accessor_source')" id="l_method-i-store_accessor_source">show</a>
+                
+              </p>
+              <div id="method-i-store_accessor_source" class="dyn-source">
+                <pre>    <span class="ruby-comment"># File activerecord/lib/active_record/store.rb</span>
+<span class="line-num">109</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">store_accessor</span>(<span class="ruby-identifier">store_attribute</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">keys</span>, <span class="ruby-value">prefix:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">suffix:</span> <span class="ruby-keyword">nil</span>)
+<span class="line-num">110</span>   <span class="ruby-identifier">keys</span> = <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">flatten</span>
+<span class="line-num">111</span> 
+<span class="line-num">112</span>   <span class="ruby-identifier">accessor_prefix</span> =
+<span class="line-num">113</span>     <span class="ruby-keyword">case</span> <span class="ruby-identifier">prefix</span>
+<span class="line-num">114</span>     <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>, <span class="ruby-constant">Symbol</span>
+<span class="line-num">115</span>       <span class="ruby-node">&quot;#{prefix}_&quot;</span>
+<span class="line-num">116</span>     <span class="ruby-keyword">when</span> <span class="ruby-constant">TrueClass</span>
+<span class="line-num">117</span>       <span class="ruby-node">&quot;#{store_attribute}_&quot;</span>
+<span class="line-num">118</span>     <span class="ruby-keyword">else</span>
+<span class="line-num">119</span>       <span class="ruby-string">&quot;&quot;</span>
+<span class="line-num">120</span>     <span class="ruby-keyword">end</span>
+<span class="line-num">121</span>   <span class="ruby-identifier">accessor_suffix</span> =
+<span class="line-num">122</span>     <span class="ruby-keyword">case</span> <span class="ruby-identifier">suffix</span>
+<span class="line-num">123</span>     <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>, <span class="ruby-constant">Symbol</span>
+<span class="line-num">124</span>       <span class="ruby-node">&quot;_#{suffix}&quot;</span>
+<span class="line-num">125</span>     <span class="ruby-keyword">when</span> <span class="ruby-constant">TrueClass</span>
+<span class="line-num">126</span>       <span class="ruby-node">&quot;_#{store_attribute}&quot;</span>
+<span class="line-num">127</span>     <span class="ruby-keyword">else</span>
+<span class="line-num">128</span>       <span class="ruby-string">&quot;&quot;</span>
+<span class="line-num">129</span>     <span class="ruby-keyword">end</span>
+<span class="line-num">130</span> 
+<span class="line-num">131</span>   <span class="ruby-identifier">_store_accessors_module</span>.<span class="ruby-identifier">module_eval</span> <span class="ruby-keyword">do</span>
+<span class="line-num">132</span>     <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+<span class="line-num">133</span>       <span class="ruby-identifier">accessor_key</span> = <span class="ruby-node">&quot;#{accessor_prefix}#{key}#{accessor_suffix}&quot;</span>
+<span class="line-num">134</span> 
+<span class="line-num">135</span>       <span class="ruby-identifier">define_method</span>(<span class="ruby-node">&quot;#{accessor_key}=&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+<span class="line-num">136</span>         <span class="ruby-identifier">write_store_attribute</span>(<span class="ruby-identifier">store_attribute</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+<span class="line-num">137</span>       <span class="ruby-keyword">end</span>
+<span class="line-num">138</span> 
+<span class="line-num">139</span>       <span class="ruby-identifier">define_method</span>(<span class="ruby-identifier">accessor_key</span>) <span class="ruby-keyword">do</span>
+<span class="line-num">140</span>         <span class="ruby-identifier">read_store_attribute</span>(<span class="ruby-identifier">store_attribute</span>, <span class="ruby-identifier">key</span>)
+<span class="line-num">141</span>       <span class="ruby-keyword">end</span>
+<span class="line-num">142</span> 
+<span class="line-num">143</span>       <span class="ruby-identifier">define_method</span>(<span class="ruby-node">&quot;#{accessor_key}_changed?&quot;</span>) <span class="ruby-keyword">do</span>
+<span class="line-num">144</span>         <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">attribute_changed?</span>(<span class="ruby-identifier">store_attribute</span>)
+<span class="line-num">145</span>         <span class="ruby-identifier">prev_store</span>, <span class="ruby-identifier">new_store</span> = <span class="ruby-identifier">changes</span>[<span class="ruby-identifier">store_attribute</span>]
+<span class="line-num">146</span>         <span class="ruby-identifier">prev_store</span>&amp;.<span class="ruby-identifier">dig</span>(<span class="ruby-identifier">key</span>) <span class="ruby-operator">!=</span> <span class="ruby-identifier">new_store</span>&amp;.<span class="ruby-identifier">dig</span>(<span class="ruby-identifier">key</span>)
+<span class="line-num">147</span>       <span class="ruby-keyword">end</span>
+<span class="line-num">148</span> 
+<span class="line-num">149</span>       <span class="ruby-identifier">define_method</span>(<span class="ruby-node">&quot;#{accessor_key}_change&quot;</span>) <span class="ruby-keyword">do</span>
+<span class="line-num">150</span>         <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">attribute_changed?</span>(<span class="ruby-identifier">store_attribute</span>)
+<span class="line-num">151</span>         <span class="ruby-identifier">prev_store</span>, <span class="ruby-identifier">new_store</span> = <span class="ruby-identifier">changes</span>[<span class="ruby-identifier">store_attribute</span>]
+<span class="line-num">152</span>         [<span class="ruby-identifier">prev_store</span>&amp;.<span class="ruby-identifier">dig</span>(<span class="ruby-identifier">key</span>), <span class="ruby-identifier">new_store</span>&amp;.<span class="ruby-identifier">dig</span>(<span class="ruby-identifier">key</span>)]
+<span class="line-num">153</span>       <span class="ruby-keyword">end</span>
+<span class="line-num">154</span> 
+<span class="line-num">155</span>       <span class="ruby-identifier">define_method</span>(<span class="ruby-node">&quot;#{accessor_key}_was&quot;</span>) <span class="ruby-keyword">do</span>
+<span class="line-num">156</span>         <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">attribute_changed?</span>(<span class="ruby-identifier">store_attribute</span>)
+<span class="line-num">157</span>         <span class="ruby-identifier">prev_store</span>, <span class="ruby-identifier">_new_store</span> = <span class="ruby-identifier">changes</span>[<span class="ruby-identifier">store_attribute</span>]
+<span class="line-num">158</span>         <span class="ruby-identifier">prev_store</span>&amp;.<span class="ruby-identifier">dig</span>(<span class="ruby-identifier">key</span>)
+<span class="line-num">159</span>       <span class="ruby-keyword">end</span>
+<span class="line-num">160</span> 
+<span class="line-num">161</span>       <span class="ruby-identifier">define_method</span>(<span class="ruby-node">&quot;saved_change_to_#{accessor_key}?&quot;</span>) <span class="ruby-keyword">do</span>
+<span class="line-num">162</span>         <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">saved_change_to_attribute?</span>(<span class="ruby-identifier">store_attribute</span>)
+<span class="line-num">163</span>         <span class="ruby-identifier">prev_store</span>, <span class="ruby-identifier">new_store</span> = <span class="ruby-identifier">saved_change_to_attribute</span>(<span class="ruby-identifier">store_attribute</span>)
+<span class="line-num">164</span>         <span class="ruby-identifier">prev_store</span>&amp;.<span class="ruby-identifier">dig</span>(<span class="ruby-identifier">key</span>) <span class="ruby-operator">!=</span> <span class="ruby-identifier">new_store</span>&amp;.<span class="ruby-identifier">dig</span>(<span class="ruby-identifier">key</span>)
+<span class="line-num">165</span>       <span class="ruby-keyword">end</span>
+<span class="line-num">166</span> 
+<span class="line-num">167</span>       <span class="ruby-identifier">define_method</span>(<span class="ruby-node">&quot;saved_change_to_#{accessor_key}&quot;</span>) <span class="ruby-keyword">do</span>
+<span class="line-num">168</span>         <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">saved_change_to_attribute?</span>(<span class="ruby-identifier">store_attribute</span>)
+<span class="line-num">169</span>         <span class="ruby-identifier">prev_store</span>, <span class="ruby-identifier">new_store</span> = <span class="ruby-identifier">saved_change_to_attribute</span>(<span class="ruby-identifier">store_attribute</span>)
+<span class="line-num">170</span>         [<span class="ruby-identifier">prev_store</span>&amp;.<span class="ruby-identifier">dig</span>(<span class="ruby-identifier">key</span>), <span class="ruby-identifier">new_store</span>&amp;.<span class="ruby-identifier">dig</span>(<span class="ruby-identifier">key</span>)]
+<span class="line-num">171</span>       <span class="ruby-keyword">end</span>
+<span class="line-num">172</span> 
+<span class="line-num">173</span>       <span class="ruby-identifier">define_method</span>(<span class="ruby-node">&quot;#{accessor_key}_before_last_save&quot;</span>) <span class="ruby-keyword">do</span>
+<span class="line-num">174</span>         <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">saved_change_to_attribute?</span>(<span class="ruby-identifier">store_attribute</span>)
+<span class="line-num">175</span>         <span class="ruby-identifier">prev_store</span>, <span class="ruby-identifier">_new_store</span> = <span class="ruby-identifier">saved_change_to_attribute</span>(<span class="ruby-identifier">store_attribute</span>)
+<span class="line-num">176</span>         <span class="ruby-identifier">prev_store</span>&amp;.<span class="ruby-identifier">dig</span>(<span class="ruby-identifier">key</span>)
+<span class="line-num">177</span>       <span class="ruby-keyword">end</span>
+<span class="line-num">178</span>     <span class="ruby-keyword">end</span>
+<span class="line-num">179</span>   <span class="ruby-keyword">end</span>
+<span class="line-num">180</span> 
+<span class="line-num">181</span>   <span class="ruby-comment"># assign new store attribute and create new hash to ensure that each class in the hierarchy</span>
+<span class="line-num">182</span>   <span class="ruby-comment"># has its own hash of stored attributes.</span>
+<span class="line-num">183</span>   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">local_stored_attributes</span> <span class="ruby-operator">||=</span> {}
+<span class="line-num">184</span>   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">local_stored_attributes</span>[<span class="ruby-identifier">store_attribute</span>] <span class="ruby-operator">||=</span> []
+<span class="line-num">185</span>   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">local_stored_attributes</span>[<span class="ruby-identifier">store_attribute</span>] <span class="ruby-operator">|=</span> <span class="ruby-identifier">keys</span>
+<span class="line-num">186</span> <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-stored_attributes">
+            
+              <b>stored_attributes</b>()
+            
+            <a href="../../../classes/ActiveRecord/Store/ClassMethods.html#method-i-stored_attributes" name="method-i-stored_attributes" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-stored_attributes_source')" id="l_method-i-stored_attributes_source">show</a>
+                
+              </p>
+              <div id="method-i-stored_attributes_source" class="dyn-source">
+                <pre>    <span class="ruby-comment"># File activerecord/lib/active_record/store.rb</span>
+<span class="line-num">196</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">stored_attributes</span>
+<span class="line-num">197</span>   <span class="ruby-identifier">parent</span> = <span class="ruby-identifier">superclass</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:stored_attributes</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">superclass</span>.<span class="ruby-identifier">stored_attributes</span> <span class="ruby-operator">:</span> {}
+<span class="line-num">198</span>   <span class="ruby-keyword">if</span> <span class="ruby-identifier">local_stored_attributes</span>
+<span class="line-num">199</span>     <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">local_stored_attributes</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">b</span> }
+<span class="line-num">200</span>   <span class="ruby-keyword">end</span>
+<span class="line-num">201</span>   <span class="ruby-identifier">parent</span>
+<span class="line-num">202</span> <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>
